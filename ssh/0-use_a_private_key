@@ -1,3 +1,4 @@
 #!/usr/bin/env bash
-# uses ssh to connect to server using a private key
-ssh -i ~/.ssh/codingschool ubuntu@35.237.252.169
+# connect to your server using the private key ~/.ssh/school
+# echo "SSH Public key" >> ~/.ssh/authorized_keys
+ssh -i ~/.ssh/school ubuntu@44.192.38.3
