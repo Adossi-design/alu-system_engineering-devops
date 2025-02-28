@@ -1,7 +1,4 @@
-Host *
- IgnoreUnknown AddKeysToAgent,UseKeychain
- AddKeysToAgent yes
- UseKeychain yes
- IdentityFile ~/.ssh/id_rsa
- IdentityFile ~/.ssh/codingschool
- PasswordAuthentication no
+# ssh config file
+Host 44.192.38.3
+      PasswordAuthentication no
+      IdentifyFile ~/.ssh/school
