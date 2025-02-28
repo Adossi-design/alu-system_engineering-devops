@@ -11,19 +11,19 @@ fi
 
 # Add the public key to the server's authorized_keys file
 echo "Copying public key to the server..."
-ssh-copy-id -i ~/.ssh/school.pub ubuntu@44.192.38.3
+ssh-copy-id -i ~/.ssh/school.pub ubuntu@192.168.1.70
 
 # Configure SSH to use the private key and disable password authentication
 echo "Configuring SSH client..."
 cat <<EOL >> ~/.ssh/config
-Host 44.192.38.3
-    HostName 44.192.38.3
+Host 192.168.1.70
+    HostName 192.168.1.70
     User ubuntu
     IdentityFile ~/.ssh/school
     PasswordAuthentication no
 EOL
 
-echo "SSH configuration updated. You can now connect using: ssh ubuntu@44.192.38.3"
+echo "SSH configuration updated. You can now connect using: ssh ubuntu@192.168.1.70"
 
 # Test the connection
 echo "Testing connection to the server..."
