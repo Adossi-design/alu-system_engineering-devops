@@ -1,0 +1,5 @@
+used 0-use_a_private_key to get into the server
+then in the server i did the following:
+
+cd ~/.ssh/
+echo "the_given_key" >> authorized_keys
