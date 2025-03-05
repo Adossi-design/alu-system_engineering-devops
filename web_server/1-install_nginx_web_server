@@ -1,10 +1,8 @@
 #!/usr/bin/env bash
-# SetUp Process for Nginx on a server
+# installs nginx and configures it on a remote server
 
 apt-get -y update
 apt-get -y install nginx
-ufw enable
 ufw allow 'Nginx HTTP'
-ufw allow 'OpenSSH'
-echo "Holberton School" > /var/www/html/index.html
-service nginx restart
+echo 'Hello World!' > /var/www/html/index.nginx-debian.html
+service nginx start
