@@ -1,11 +1,12 @@
 #!/usr/bin/env bash
-# Configure your Nginx server to have a custom 404 page that contains the string `Ceci n'est pas une page`
+# Commands to automatically configure a Ubuntu machine to handle 404 error
 
-sudo apt-get update
-sudo apt-get install -y nginx
+sudo apt update -y
+sudo apt install nginx -y
+
 
 echo "Ceci n'est pas une page" | sudo tee /var/www/html/404.html
-new_error_page="listen 80 default_server;\n\terror_page 404 \/404.html;\n\tlocation = \/404.html {\n\t\troot \/var\/www\/html;\n\t\tinternal;\n\t}"
-sudo sed -i "s|listen 80 default_server;|$new_error_page|" /etc/nginx/sites-enabled/default
+sudo sed -i '/server_name _;/a \\n\terror_page 404 \/404.html;\n\tlocation = \/404.html {\n\t\troot \/var\/www\/html;\n\t\tinternal;\n\t}' /etc/nginx/sites-available/default
 
 sudo service nginx restart
+
