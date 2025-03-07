@@ -1,0 +1,25 @@
+#!/usr/bin/env bash
+# Setup haproxy on server lb-01 to serve web-01 and web-02.
+
+sudo apt-get -y update
+sudo apt-get -y install haproxy
+
+# Enable HAProxy to be started by init script
+echo "ENABLED=1" | sudo tee -a /etc/default/haproxy
+
+# Backup original config
+sudo cp /etc/haproxy/haproxy.cfg /etc/haproxy/haproxy.cfg.original
+
+echo \
+"
+frontend lb-frontend
+        bind *:80
+        mode http
+        default_backend lb-backend
+backend lb-backend
+        balance roundrobin
+        server web-01 44.201.116.83:80 check
+        server web-02 3.82.98.95:80 check
+" | sudo tee -a /etc/haproxy/haproxy.cfg
+
+sudo service haproxy restart
