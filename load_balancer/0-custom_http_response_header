@@ -46,7 +46,7 @@ for dir in /var/www/{html,error}; do
 done
 
 # creating new index
-echo "Hello World!" > /var/www/html/index.html
+echo "Holberton School" > /var/www/html/index.html
 
 # create new error page
 echo "Ceci n'est pas une page" > /var/www/html/error_404.html
