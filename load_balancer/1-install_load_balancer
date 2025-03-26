@@ -34,11 +34,11 @@ defaults
   timeout server 15s
   timeout http-request 10s
 
-frontend clickviral-tech-frontend
+frontend adossi-tech-frontend
     bind *:80
-    default_backend clickviral-tech-backend
+    default_backend adossi-tech-backend
 
-backend clickviral-tech-backend
+backend adossi-tech-backend
     balance roundrobin
     server 6518-web-01 54.236.249.31:80 check
     server 6518-web-02 54.89.218.197:80 check
